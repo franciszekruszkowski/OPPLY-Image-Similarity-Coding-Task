@@ -19,14 +19,13 @@ https://github.com/openai/CLIP
 or here: 
 https://huggingface.co/transformers/v4.6.0/model_doc/clip.html 
 
-Code : 
+CODE: 
 
 After importing the necessary libraries, I began writing the CLIPFeatureExtractor class. The two main  sources for this code were the hugging face documentation on CLIP FeatureExtractor and the Github openai/CLIP source code: 
 
 The class consisted of a constructor and 2 functions, namely “encode_text” and “encode_images” . After loading the pretrained model for both the model and the processor, both the text and image features were normalized and both functions return the vector embedded vector of text_features and image_featues. 
 
 Next, after creating an instance of the CLIPFeatureExtractor class, the encode_text function was used to create an embedded vector of the key word “almonds”.  The load_image() function is used for opening images and converting them into the RGB colour scale. 
-
 
 The make_predictions_for_directory() function will be a function that takes all images from the relevant directory path and after using load_image, it uses the encode_images functions to return the image_features vector for all the images from the given directory. Next, the “similarities” are calculated using the Cosine Similarity function, comparing the images embedded vector values to the embedded text values of the word “almonds”. The function returns a mean of all the cosine similarity values from the given directory path. 
 
@@ -36,7 +35,7 @@ make_preds_for_examples() takes in the directory path and joins the path for bot
 
 The second function make_preds_for_google_images() goes through very similar procedures as the first function, with slightly altered directory path list creation etc, and ultimately returning only one dictionary, which is the predictions for each of the 10 categories of products. 
 
-RESULTS
+RESULTS:
 
 The higher the cosine similarity the more “goodness” it has. We can observe there is a significantly higher score for the Relevant Examples than for Irrelevant examples. For the examples of application of the CLIP models in image similarity, some examples have shown the results of around 25-30% to be in fact a significant result. 
 
@@ -75,6 +74,6 @@ https://github.com/huggingface/transformers/blob/main/src/transformers/models/cl
 
 https://www.kdnuggets.com/2021/03/beginners-guide-clip-model.html
 
-https://www.reddit.com/r/computervision/comments/mm2mz6/simple_implementation_of_openai_clip_model_in/
-
 https://towardsdatascience.com/how-to-train-your-clip-45a451dcd303 
+
+https://colab.research.google.com/github/openai/clip/blob/master/notebooks/Interacting_with_CLIP.ipynb#scrollTo=IBRVTY9lbGm8
